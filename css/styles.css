@@ -565,10 +565,6 @@ footer {
     transition: background 0.2s;
 }
 
-.about-link:hover {
-    background: #e3f2fd;
-}
-
 .about-news-title {
     color: #2196f3;
     font-size: 1.1rem;
