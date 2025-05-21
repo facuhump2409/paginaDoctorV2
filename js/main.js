@@ -3,14 +3,6 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log('Website loaded successfully!');
     
     // You can add your JavaScript code here
-    
-    // Example: Add a simple click event to the h1
-    const mainTitle = document.querySelector('h1');
-    if (mainTitle) {
-        mainTitle.addEventListener('click', () => {
-            alert('Welcome to the website!');
-        });
-    }
 
     let page = window.location.pathname.split('/').pop();
     let active = '';

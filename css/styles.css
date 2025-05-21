@@ -5,7 +5,8 @@
     box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
     height: 100%;
     width: 100%;
     overflow-x: hidden;
@@ -90,6 +91,8 @@ body {
 
 .nav-link.active {
     color: var(--primary-blue);
+    text-decoration: underline;
+    text-underline-offset: 4px;
 }
 
 .nav-button {
@@ -260,7 +263,10 @@ footer {
 }
 
 .hero-text h1 {
-    font-size: 2.5rem;
+    color: #1F94E8;
+    font-size: 32px;
+    font-weight: 500;
+    font-family: "Albert Sans", sans-serif;
     color: var(--primary-blue);
     margin-bottom: 1rem;
     line-height: 1.2;
@@ -681,8 +687,8 @@ footer {
         gap: 10px;
         margin-bottom: 8px;
     }
-    
-    .about-news-card:nth-child(2) {
+
+    .about-news-card {
         flex-direction: row;
     }
 
@@ -706,85 +712,91 @@ footer {
     }
 }
 
+/* --- TODO check gap between consultorio block 1 and 2 --- */
 .consultorios-title {
-    color: #0072C5;
-    font-size: 2rem;
+    color: #1F94E8;
+    font-size: 24px;
     font-weight: 600;
     margin-bottom: 1em;
 }
 
 .consultorio-block h2 {
-    color: #0072C5;
+    color: #1F94E8;
 }
+
 /* --- End Acerca de mi page styles --- */
 
 @media (min-width: 900px) {
-  .consultorio-block {
-    display: flex;
-    width: 1037px;
-    justify-content: space-between;
-    align-items: center;
-    gap: 0;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  .consultorio-info {
-    flex: none;
-    max-width: 420px;
-    min-width: 320px;
+    .consultorio-block {
+        display: flex;
+        width: 1037px;
+        justify-content: space-between;
+        align-items: center;
+        gap: 0;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .consultorio-info {
+        flex: none;
+        max-width: 420px;
+        min-width: 320px;
+        color: #000;
+        font-family: "Albert Sans", sans-serif;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+    }
+
+    .consultorio-img {
+        flex: none;
+        max-width: 480px;
+        min-width: 320px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+    }
+}
+
+.consultorio-info {
     color: #000;
     font-family: "Albert Sans", sans-serif;
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
-  }
-  .consultorio-img {
-    flex: none;
-    max-width: 480px;
-    min-width: 320px;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-  }
-}
-
-.consultorio-info {
-  color: #000;
-  font-family: "Albert Sans", sans-serif;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
 }
 
 .consultorio-btn {
-  display: inline-block;
-  background: #2196f3;
-  color: #fff;
-  padding: 10px 22px;
-  border-radius: 8px;
-  text-decoration: none;
-  font-family: "Albert Sans", sans-serif;
-  font-size: 16px;
-  font-weight: 500;
-  border: none;
-  box-shadow: none;
-  margin-top: 16px;
-  transition: background 0.2s;
+    display: inline-block;
+    background: #2196f3;
+    color: #fff;
+    padding: 10px 22px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-family: "Albert Sans", sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    border: none;
+    box-shadow: none;
+    margin-top: 16px;
+    transition: background 0.2s;
 }
+
 .consultorio-btn:hover {
-  background: #0072C5;
+    background: #0072C5;
 }
 
 .consultorio-info strong {
-  color: #0072C5;
-  font-weight: 600;
-  display: block;
-  margin-top: 22px;
+    color: #0072C5;
+    font-weight: 600;
+    display: block;
+    margin-top: 22px;
 }
+
 .consultorio-info p:first-of-type strong {
-  margin-top: 0;
+    margin-top: 0;
 }
 
 /* --- Información al paciente page styles --- */
@@ -793,6 +805,7 @@ footer {
     margin: 0 auto;
     padding: 40px 0 40px 0;
 }
+
 .info-title {
     color: #1F94E8;
     font-size: 2rem;
@@ -800,6 +813,7 @@ footer {
     margin-bottom: 1.5em;
     text-align: left;
 }
+
 .info-subtitle {
     color: #0072C5;
     font-size: 1.15rem;
@@ -808,20 +822,23 @@ footer {
     margin-top: 2.2em;
     text-align: left;
 }
+
 .faq-list {
     width: 100%;
     padding-left: 0;
     padding-right: 0;
 }
+
 .faq-item {
     width: 100%;
     background: #fff;
     border-radius: 8px;
     margin-bottom: 12px;
     border-left: 4px solid #1F94E8;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
     transition: box-shadow 0.2s;
 }
+
 .faq-question {
     display: flex;
     align-items: center;
@@ -835,6 +852,7 @@ footer {
     transition: background 0.2s;
     user-select: none;
 }
+
 .faq-arrow {
     color: #1F94E8;
     font-size: 1.3em;
@@ -842,9 +860,11 @@ footer {
     transition: transform 0.2s;
     flex-shrink: 0;
 }
+
 .faq-item.open .faq-arrow {
     transform: rotate(90deg);
 }
+
 .faq-answer {
     display: block;
     max-height: 0;
@@ -853,7 +873,7 @@ footer {
     padding: 0 1.7em 0 2.2em;
     background: #fff;
     border-radius: 0 0 8px 8px;
-    transition: max-height 0.3s cubic-bezier(0.4,0,0.2,1), opacity 0.2s;
+    transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.2s;
     color: #636363;
     font-size: 16px;
     font-style: normal;
@@ -873,8 +893,9 @@ footer {
     opacity: 1;
     padding-bottom: 1.2em;
     max-height: 3000px;
-    transition: max-height 0.5s cubic-bezier(0.4,0,0.2,1), opacity 0.2s;
+    transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.2s;
 }
+
 .info-highlight {
     background: #D6ECF9;
     color: #1F94E8;
@@ -885,11 +906,13 @@ footer {
     border-radius: 6px;
     margin-bottom: 2em;
 }
+
 .info-checklist {
     list-style: none;
     padding: 0;
     margin: 1.5em 0 0 0;
 }
+
 .info-checklist li {
     display: flex;
     align-items: flex-start;
@@ -897,47 +920,57 @@ footer {
     color: #444;
     margin-bottom: 1em;
 }
+
 .check-icon {
     color: #1F94E8;
     font-size: 1.2em;
     margin-right: 10px;
     margin-top: 2px;
 }
+
 @media (max-width: 700px) {
     .info-section {
         max-width: 100%;
         padding: 18px 2vw 32px 2vw;
     }
+
     .info-title {
         font-size: 1.2rem;
         text-align: left;
         margin-bottom: 1.2em;
     }
+
     .info-subtitle {
         font-size: 1.05rem;
         margin-bottom: 1em;
         margin-top: 1.5em;
     }
+
     .faq-item {
         margin-bottom: 8px;
         border-radius: 7px;
     }
+
     .faq-question {
         font-size: 0.98rem;
         padding: 1em 0.7em 1em 0.9em;
     }
+
     .faq-answer {
         font-size: 0.97rem;
         padding: 0 1em 0 1.3em;
     }
+
     .faq-item.open .faq-answer {
         padding-bottom: 1em;
     }
+
     .info-highlight {
         font-size: 0.93rem;
         padding: 0.7em 0.7em;
         margin-bottom: 1.2em;
     }
+
     .info-checklist li {
         font-size: 0.97rem;
         margin-bottom: 0.7em;
@@ -945,200 +978,254 @@ footer {
 }
 
 @media (min-width: 901px) {
-  .info-section {
-    box-sizing: border-box;
-    width: 100%;
-    max-width: 1166px;
-    margin: 0 auto 2rem auto;
-    background: #fff;
-    border: 1px solid #e5e5e5;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    padding: 64px 208px 64px 126px;
-  }
+    .info-section {
+        box-sizing: border-box;
+        width: 100%;
+        max-width: 1166px;
+        margin: 0 auto 2rem auto;
+        background: #fff;
+        border: 1px solid #e5e5e5;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        padding: 64px 208px 64px 126px;
+    }
 }
 
 /* Carousel Styles */
 .carousel {
-  position: relative;
-  width: 100%;
-  max-width: 420px;
-  margin: 0 auto;
-  overflow: hidden;
-  border-radius: 14px;
-  background: #f7f7f7;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
-  min-height: 260px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+    position: relative;
+    width: 100%;
+    max-width: 420px;
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 14px;
+    background: #f7f7f7;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
+    min-height: 260px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
+
 .carousel-track {
-  display: flex;
-  transition: transform 0.5s cubic-bezier(0.4,0,0.2,1);
-  width: 100%;
+    display: flex;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    width: 100%;
 }
+
 .carousel-img {
-  min-width: 100%;
-  width: 100%;
-  height: 260px;
-  object-fit: cover;
-  border-radius: 14px;
-  background: #eaeaea;
+    min-width: 100%;
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+    border-radius: 14px;
+    background: #eaeaea;
 }
+
 .carousel-arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(255,255,255,0.85);
-  border: none;
-  border-radius: 50%;
-  width: 36px;
-  height: 36px;
-  font-size: 1.5rem;
-  color: #2196f3;
-  cursor: pointer;
-  z-index: 2;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-  transition: background 0.2s;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.85);
+    border: none;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    font-size: 1.5rem;
+    color: #2196f3;
+    cursor: pointer;
+    z-index: 2;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    transition: background 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-.carousel-arrow.left { left: 10px; }
-.carousel-arrow.right { right: 10px; }
-.carousel-arrow:hover { background: #e3f3fd; }
+
+.carousel-arrow.left {
+    left: 10px;
+}
+
+.carousel-arrow.right {
+    right: 10px;
+}
+
+.carousel-arrow:hover {
+    background: #e3f3fd;
+}
+
 .carousel-dots {
-  display: flex;
-  justify-content: center;
-  gap: 8px;
-  margin: 12px 0 8px 0;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin: 12px 0 8px 0;
 }
+
 .carousel-dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: #b3d6f6;
-  cursor: pointer;
-  transition: background 0.2s;
-  display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #b3d6f6;
+    cursor: pointer;
+    transition: background 0.2s;
+    display: inline-block;
 }
+
 .carousel-dot.active {
-  background: #2196f3;
+    background: #2196f3;
 }
+
 @media (max-width: 700px) {
-  .carousel {
-    max-width: 100vw;
-    min-height: 180px;
-  }
-  .carousel-img {
-    height: 180px;
-  }
+    body {
+        background: #f7f7f7;
+    }
+
+    .carousel {
+        max-width: 100vw;
+        min-height: 180px;
+    }
+
+    .carousel-img {
+        height: 180px;
+    }
 }
 
 .contact-title {
-  color: #2196f3;
-  font-size: 2rem;
-  font-weight: 600;
-  margin: 48px 0 32px 0;
-  font-family: "Albert Sans", sans-serif;
+    color: #2196f3;
+    font-size: 2rem;
+    font-weight: 600;
+    margin: 48px 0 32px 0;
+    font-family: "Albert Sans", sans-serif;
 }
 
 .contact-cards-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 32px;
-  max-width: 1100px;
-  margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    max-width: 1100px;
+    margin: 0 auto;
 }
 
 .contact-card {
-  background: #fff;
-  border-radius: 10px;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.04);
-  padding: 32px 32px 24px 32px;
-  min-width: 320px;
-  min-height: auto;
-  display: flex;
-  flex-direction: column;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+    padding: 32px 32px 24px 32px;
+    min-width: 320px;
+    min-height: auto;
+    display: flex;
+    flex-direction: column;
 }
 
 .contact-card-title {
-  color: #2196f3;
-  font-size: 1.25rem;
-  font-weight: 500;
-  margin-bottom: 0.5em;
-  font-family: "Albert Sans", sans-serif;
+    color: #2196f3;
+    font-size: 1.25rem;
+    font-weight: 500;
+    margin-bottom: 0.5em;
+    font-family: "Albert Sans", sans-serif;
 }
 
 .contact-card-divider {
-  border: none;
-  border-top: 1.5px solid #e5e5e5;
-  margin-bottom: 1.2em;
+    border: none;
+    border-top: 1.5px solid #e5e5e5;
+    margin-bottom: 1.2em;
 }
 
 .contact-card strong {
-  color: #2196f3;
-  font-weight: 600;
-  display: block;
-  margin-top: 18px;
-  margin-bottom: 0.2em;
-  font-size: 1.01rem;
+    color: #2196f3;
+    font-weight: 600;
+    display: block;
+    margin-top: 18px;
+    margin-bottom: 0.2em;
+    font-size: 1.01rem;
 }
 
 .contact-card p {
-  color: #222;
-  font-family: "Albert Sans", sans-serif;
-  font-size: 1rem;
-  margin-bottom: 1em;
-  line-height: 1.5;
+    color: #222;
+    font-family: "Albert Sans", sans-serif;
+    font-size: 1rem;
+    margin-bottom: 1em;
+    line-height: 1.5;
 }
 
 .contact-card a {
-  color: #2196f3;
-  text-decoration: underline;
-  word-break: break-all;
-  display: inline-block;
-  margin-bottom: 0.5em;
+    color: #2196f3;
+    text-decoration: underline;
+    word-break: break-all;
+    display: inline-block;
+    margin-bottom: 0.5em;
 }
 
 .consultorio-icon {
-  color: #2196f3;
-  margin-right: 6px;
+    color: #2196f3;
+    margin-right: 6px;
 }
 
 @media (max-width: 900px) {
-  body {
-    background: #f7f7f7;
-  }
-  .contact-title {
-    font-size: 1.3rem;
-    margin: 32px 0 18px 0;
-    text-align: left;
-    padding-left: 8px;
-  }
-  .contact-cards-container {
-    grid-template-columns: 1fr;
-    gap: 18px;
-    padding: 0 0 32px 0;
-    max-width: 420px;
-    margin: 0 auto;
-  }
-  .contact-card {
-    min-width: 0;
-    padding: 24px 16px 24px 16px;
+    body {
+        background: #f7f7f7;
+    }
+
+    .contact-title {
+        font-size: 1.3rem;
+        margin: 32px 0 18px 0;
+        text-align: left;
+        padding-left: 8px;
+    }
+
+    .contact-cards-container {
+        grid-template-columns: 1fr;
+        gap: 18px;
+        padding: 0 0 32px 0;
+        max-width: 420px;
+        margin: 0 auto;
+    }
+
+    .contact-card {
+        min-width: 0;
+        padding: 24px 16px 24px 16px;
+        border-radius: 10px;
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+        background: #fff;
+        min-height: auto;
+    }
+
+    .contact-card p {
+        margin-bottom: 1em;
+        line-height: 1.6;
+    }
+
+    .contact-card a {
+        display: inline-block;
+        margin-bottom: 0.5em;
+        line-height: 1.4;
+    }
+
+    .consultorios-title {
+        margin-top: 16px;
+        text-align: left;
+        padding-left: 16px;
+        padding-right: 0;
+    }
+}
+
+.contact-map {
+    margin-top: 12px;
+    margin-bottom: 24px;
     border-radius: 10px;
+    overflow: hidden;
     box-shadow: 0 2px 12px rgba(0,0,0,0.04);
-    background: #fff;
-    min-height: auto;
-  }
-  .contact-card p {
-    margin-bottom: 1em;
-    line-height: 1.6;
-  }
-  .contact-card a {
-    display: inline-block;
-    margin-bottom: 0.5em;
-    line-height: 1.4;
-  }
+}
+
+.contact-map iframe {
+    width: 100%;
+    height: 250px;
+    border: 0;
+    display: block;
+}
+
+@media (min-width: 900px) {
+    .contact-map iframe {
+        height: 300px;
+    }
 }
