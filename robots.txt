@@ -1,0 +1,14 @@
+# Allow all crawlers
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://www.drfacundohumphreys.com/sitemap.xml
+
+# Disallow crawling of any potential admin or system files
+Disallow: /admin/
+Disallow: /system/
+Disallow: /cgi-bin/
+Disallow: /*.php$
+Disallow: /*.sql$
+Disallow: /*.log$ 
