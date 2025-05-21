@@ -234,6 +234,7 @@ footer {
     justify-content: center;
     align-items: center;
     position: relative;
+    will-change: transform;
 }
 
 .hero-image::before {
@@ -244,6 +245,7 @@ footer {
     background-color: #DBEEFB;
     border-radius: 50%;
     z-index: 0;
+    transform: translateZ(0);
 }
 
 .hero-image img {
@@ -255,6 +257,8 @@ footer {
     position: relative;
     z-index: 1;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    transform: translateZ(0);
+    backface-visibility: hidden;
 }
 
 .hero-text {
@@ -416,7 +420,7 @@ footer {
         width: 300px;
         height: 300px;
         left: 50%;
-        transform: translateX(-50%);
+        transform: translateX(-50%) translateZ(0);
     }
 
     .hero-image img {
