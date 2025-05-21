@@ -24,7 +24,7 @@ function renderNavbar(activePage) {
         <div class="navbar">
             <div class="nav-container">
                 <div class="nav-logo">
-                    <img src="assets/logo.svg" alt="Logo" class="logo-img">
+                    <img src="assets/logo.svg" alt="Logo" class="logo-img" width="32" height="32">
                     <a href="index.html" class="logo-text">Dr. Andrés Humphreys</a>
                 </div>
                 <button class="mobile-menu-btn" aria-label="Menu">
