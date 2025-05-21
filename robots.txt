@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Sitemap location
-Sitemap: https://www.drfacundohumphreys.com/sitemap.xml
+Sitemap: https://www.andreshumphreys.com/sitemap.xml
 
 # Disallow crawling of any potential admin or system files
 Disallow: /admin/
