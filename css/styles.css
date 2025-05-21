@@ -384,7 +384,7 @@ footer {
     .hero-content {
         flex-direction: column;
         text-align: left;
-        gap: 30px;
+        gap: 10px;
         align-items: flex-start;
     }
 
@@ -409,7 +409,7 @@ footer {
 
     .hero-image {
         width: 100%;
-        padding: 20px 0;
+        padding: 0px 0;
     }
 
     .hero-image::before {
