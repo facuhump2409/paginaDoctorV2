@@ -1233,3 +1233,41 @@ footer {
         height: 300px;
     }
 }
+
+.info-section ul, .info-section li, .info-section p {
+    color: #000;
+    font-family: "Albert Sans", sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+@media (max-width: 700px) {
+    .info-section ul, .info-section li, .info-section p {
+        color: #000;
+        font-family: "Albert Sans", sans-serif;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+    }
+}
+
+.info-section ul {
+    list-style: disc !important;
+    margin-left: 1.5em !important;
+}
+.info-section li {
+    list-style: disc !important;
+}
+
+@media (max-width: 700px) {
+    .info-section ul {
+        list-style: disc !important;
+        margin-left: 1.5em !important;
+    }
+    .info-section li {
+        list-style: disc !important;
+    }
+}
