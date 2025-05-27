@@ -38,7 +38,7 @@ function renderNavbar(activePage) {
                     <a href="consultorios.html" class="nav-link${activePage === 'consultorios' ? ' active' : ''}">Consultorios y turnos</a>
                     <a href="informacion.html" class="nav-link${activePage === 'informacion' ? ' active' : ''}">Información al paciente</a>
                     <a href="contacto.html" class="nav-link${activePage === 'contacto' ? ' active' : ''}">Contacto</a>
-                    <a href="contacto.html" class="nav-button">Reservar turno</a>
+                    <a href="consultorios.html" class="nav-button">Reservar turno</a>
                 </div>
             </div>
         </div>
