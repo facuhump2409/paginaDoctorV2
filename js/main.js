@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let page = window.location.pathname.split('/').pop();
     let active = '';
-    if (page === 'index.html' || page === '') active = 'index';
+    if (page === 'index.html' || page === '' || page === '/') active = 'index';
     else if (page === 'acerca-de-mi.html') active = 'acerca';
     else if (page === 'consultorios.html') active = 'consultorios';
     else if (page === 'informacion.html') active = 'informacion';
@@ -25,7 +25,7 @@ function renderNavbar(activePage) {
             <div class="nav-container">
                 <div class="nav-logo">
                     <img src="assets/logo.svg" alt="Logo" class="logo-img" width="32" height="32">
-                    <a href="index.html" class="logo-text">Dr. Andrés Humphreys</a>
+                    <a href="/" class="logo-text">Dr. Andrés Humphreys</a>
                 </div>
                 <button class="mobile-menu-btn" aria-label="Menu">
                     <span></span>
@@ -33,7 +33,7 @@ function renderNavbar(activePage) {
                     <span></span>
                 </button>
                 <div class="nav-links">
-                    <a href="index.html" class="nav-link${activePage === 'index' ? ' active' : ''}">Inicio</a>
+                    <a href="/" class="nav-link${activePage === 'index' ? ' active' : ''}">Inicio</a>   
                     <a href="acerca-de-mi.html" class="nav-link${activePage === 'acerca' ? ' active' : ''}">Acerca de mí</a>
                     <a href="consultorios.html" class="nav-link${activePage === 'consultorios' ? ' active' : ''}">Consultorios y turnos</a>
                     <a href="informacion.html" class="nav-link${activePage === 'informacion' ? ' active' : ''}">Información al paciente</a>
