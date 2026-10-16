@@ -1,107 +1,143 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Consultorios del Dr. Andrés Humphreys en Temperley y Palermo. Horarios de atención, direcciones y formas de solicitar turnos. Acepta OSDE y particulares.">
-    <title>Consultorios y turnos | Dr. Andrés Humphreys</title>
-    <link rel="canonical" href="https://www.andreshumphreys.com/consultorios.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Consultorios y contacto del Dr. Andrés Humphreys en Temperley y Palermo. Direcciones, mapas, horarios, teléfonos y turnos online. Acepta OSDE y particulares.">
+    <meta name="theme-color" content="#FBF7F4">
+    <title>Consultorios, turnos y contacto | Dr. Andrés Humphreys</title>
+    <link rel="canonical" href="https://www.andreshumphreys.com/consultorios.html">
     <link rel="icon" type="image/svg+xml" href="assets/logo.svg" width="32" height="32">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "MedicalClinic",
+          "name": "Consultorio Temperley - Dr. Andrés Humphreys",
+          "url": "https://www.andreshumphreys.com/consultorios.html#temperley",
+          "telephone": "+54-11-4244-3486",
+          "email": "consultoriomeeks1313@gmail.com",
+          "hasMap": "https://www.google.com/maps/search/?api=1&query=Av.+Meeks+1313,+Temperley",
+          "address": { "@type": "PostalAddress", "streetAddress": "Av. Meeks 1313, 1er piso, depto 4", "addressLocality": "Temperley", "addressRegion": "Buenos Aires", "addressCountry": "AR" },
+          "openingHoursSpecification": [
+            { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Wednesday"], "opens": "16:00", "closes": "20:00" }
+          ]
+        },
+        {
+          "@type": "MedicalClinic",
+          "name": "Consultorio Palermo - Dr. Andrés Humphreys",
+          "url": "https://www.andreshumphreys.com/consultorios.html#palermo",
+          "telephone": "+54-11-4141-1075",
+          "hasMap": "https://www.google.com/maps/search/?api=1&query=Av.+Santa+Fe+3242,+Palermo,+Buenos+Aires",
+          "address": { "@type": "PostalAddress", "streetAddress": "Av. Santa Fe 3242, 9no piso, depto F", "addressLocality": "Palermo", "addressRegion": "CABA", "addressCountry": "AR" },
+          "openingHoursSpecification": [
+            { "@type": "OpeningHoursSpecification", "dayOfWeek": "Tuesday", "opens": "14:00", "closes": "19:30" },
+            { "@type": "OpeningHoursSpecification", "dayOfWeek": "Friday", "opens": "10:00", "closes": "17:00" }
+          ]
+        }
+      ]
+    }
+    </script>
 </head>
 <body>
-    <nav id="main-navbar"></nav>
+    <div id="site-header"></div>
 
-    <main>
-        <h1 class="consultorios-title">Consultorios y turnos</h1>
-        <section class="consultorios-section">
-            <div class="consultorio-block">
-                <div class="consultorio-info">
-                    <h2><span class="consultorio-arrow">&#8250;</span> Temperley, Zona Sur</h2>
-                    <br>
-                    <p><strong>Dirección:</strong><br>
-                        <span class="consultorio-icon">📍</span> Av. Meeks 1313, 1er piso, depto 4
-                    </p>
-                    <p><strong>Horarios:</strong><br>
-                        Lun 16:00 a 20:00hrs<br>
-                        Mié 16:00 a 20:00hrs
-                    </p>
-                    <p><strong>Solicitá turno:</strong><br>
-                        <span class="consultorio-icon">📞</span> <a href="tel:42443486">Llamando al 4244-3486</a><br>
-                        <span class="consultorio-icon">✉️</span> <a
-                            href="mailto:consultoriomeeks1313@gmail.com">consultoriomeeks1313@gmail.com</a>
-                    </p>
-                    <p>Si tenés OSDE podés solicitar turno a través de la cartilla</p>
-                    <a target="_blank"
-                        href="https://www.osde.com.ar/cartilla-inteligente/agenda/dr-humphreys-andrs-roberto-76374/dom-116992?plan=21"
-                        class="consultorio-btn">Cartilla de turnos OSDE</a>
-                        <br><br>
+    <main id="contenido">
+        <section class="page-head">
+            <div class="container">
+                <p class="eyebrow">Consultorios, turnos y contacto</p>
+                <h1>Reservá tu turno</h1>
+                <p>Elegí el consultorio que te quede más cómodo. Si tenés OSDE podés solicitar turno a través de la cartilla; también podés llamar o escribir por WhatsApp.</p>
+            </div>
+        </section>
+
+        <section class="section" id="turnos">
+            <div class="container">
+                <div class="tabs" role="tablist" aria-label="Consultorios">
+                    <button class="tab" role="tab" id="tab-temperley" data-tab="temperley" aria-controls="panel-temperley" type="button">Temperley</button>
+                    <button class="tab" role="tab" id="tab-palermo" data-tab="palermo" aria-controls="panel-palermo" type="button">Palermo</button>
                 </div>
-                <div class="consultorio-img">
-                    <div class="carousel" data-carousel>
-                        <button class="carousel-arrow left" data-carousel-prev>&#10094;</button>
-                        <div class="carousel-track">
-                            <img src="assets/carrousel/temperley/camilla.JPG" alt="Consultorio foto 1" class="carousel-img">
-                            <img src="assets/carrousel/temperley/consultorio.JPG" alt="Consultorio foto 2" class="carousel-img">
-                            <img src="assets/carrousel/temperley/sala.JPG" alt="Consultorio foto 3" class="carousel-img">
-                            <img src="assets/carrousel/temperley/sillas.JPG" alt="Consultorio foto 4" class="carousel-img">
+
+                <div class="office" role="tabpanel" id="panel-temperley" aria-labelledby="tab-temperley" data-panel="temperley">
+                    <div class="office-info">
+                        <h2>Temperley, Zona Sur</h2>
+                        <p class="with-icon"><i data-icon="pin"></i><span>Av. Meeks 1313, 1er piso, depto 4</span></p>
+                        <div class="table-scroll">
+                            <table class="hours">
+                                <caption class="sr-only" hidden>Horarios de atención en Temperley</caption>
+                                <tbody>
+                                    <tr><th scope="row">Lunes</th><td>16:00 a 20:00 hs</td></tr>
+                                    <tr><th scope="row">Miércoles</th><td>16:00 a 20:00 hs</td></tr>
+                                </tbody>
+                            </table>
                         </div>
-                        <button class="carousel-arrow right" data-carousel-next>&#10095;</button>
-                        <div class="carousel-dots">
-                            <span class="carousel-dot" data-carousel-dot></span>
-                            <span class="carousel-dot" data-carousel-dot></span>
-                            <span class="carousel-dot" data-carousel-dot></span>
-                            <span class="carousel-dot" data-carousel-dot></span>
+                        <p class="with-icon"><i data-icon="phone"></i><span><a href="tel:42443486">Llamando al 4244-3486</a></span></p>
+                        <p class="with-icon"><i data-icon="mail"></i><span><a href="mailto:consultoriomeeks1313@gmail.com" style="overflow-wrap:anywhere">consultoriomeeks1313@gmail.com</a></span></p>
+                        <p>Si tenés OSDE podés solicitar turno a través de la cartilla.</p>
+                        <div class="btn-row">
+                            <a class="btn btn-primary" target="_blank" rel="noopener" href="https://www.osde.com.ar/cartilla-inteligente/agenda/dr-humphreys-andrs-roberto-76374/dom-116992?plan=21"><i data-icon="calendar"></i>Cartilla de turnos OSDE</a>
+                            <a class="btn btn-ghost" href="tel:42443486"><i data-icon="phone"></i>Llamar</a>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="map-wrap">
+                            <iframe title="Mapa del consultorio de Temperley" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Av.+Meeks+1313,+Temperley,+Buenos+Aires&amp;output=embed"></iframe>
+                            <a class="btn btn-rose" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&amp;query=Av.+Meeks+1313,+Temperley,+Buenos+Aires"><i data-icon="pin"></i>Abrir en Google Maps</a>
+                        </div>
+                        <div class="carousel" data-carousel style="margin-top:20px">
+                            <div class="carousel-track">
+                                <img src="assets/carrousel/temperley/camilla.JPG" alt="Consultorio de Temperley: camilla" loading="lazy">
+                                <img src="assets/carrousel/temperley/consultorio.JPG" alt="Consultorio de Temperley" loading="lazy">
+                                <img src="assets/carrousel/temperley/sala.JPG" alt="Sala de espera de Temperley" loading="lazy">
+                                <img src="assets/carrousel/temperley/sillas.JPG" alt="Sillas en el consultorio de Temperley" loading="lazy">
+                            </div>
+                            <button class="carousel-arrow left" type="button" data-prev aria-label="Foto anterior"><i data-icon="chevron"></i></button>
+                            <button class="carousel-arrow right" type="button" data-next aria-label="Foto siguiente"><i data-icon="chevron"></i></button>
+                            <div class="carousel-dots"></div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <br>
-            <br>
-            <div class="consultorio-block">
-                <div class="consultorio-info">
-                    <h2><span class="consultorio-arrow">&#8250;</span> Palermo, CABA</h2>
-                    <br>
-                    <p><strong>Dirección:</strong><br>
-                        <span class="consultorio-icon">📍</span> Av. Santa Fe 3242, 9no piso, depto F.
-                    </p>
-                    <p><strong>Horarios:</strong><br>
-                        Mar 14:00 a 19:30hrs<br>
-                        Vie 10:00 a 17:00hrs
-                    </p>
-                    <p><strong>Solicitá turno:</strong><br>
-                        <span class="consultorio-icon">📞</span> <a href="tel:1141411075">Llamando al
-                            11-4141-1075</a><br>
-                        <span class="consultorio-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                fill="currentColor" class="bi bi-whatsapp" viewBox="0 0 16 16">
-                                <path
-                                    d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232" />
-                            </svg></span> <a
-                            href="https://wa.me/541141411075?text=Hola!%20Quiero%20solicitar%20un%20turno%20con%20el%20Doctor%20Humphreys%20para%20el%20consultorio%20de%20CABA"
-                            target="_blank">A través de whatsapp al 11-4141-1075</a>
-                    </p>
-                    <p>Si tenés OSDE podés solicitar turno a través de la cartilla</p>
-                    <a target="_blank"
-                        href="https://www.osde.com.ar/cartilla-inteligente/agenda/dr-humphreys-andrs-roberto-76374/dom-306446?plan=21"
-                        class="consultorio-btn">Cartilla de turnos OSDE</a>
-                        <br><br>
-                </div>
-                <div class="consultorio-img">
-                    <div class="carousel" data-carousel>
-                        <button class="carousel-arrow left" data-carousel-prev>&#10094;</button>
-                        <div class="carousel-track">
-                            <img src="assets/carrousel/estante.jpg" alt="Consultorio foto 1" class="carousel-img">
-                            <img src="assets/carrousel/sala2.jpg" alt="Consultorio foto 2" class="carousel-img">
-                            <img src="assets/carrousel/consultorio.jpg" alt="Consultorio foto 3" class="carousel-img">
-                            <img src="assets/carrousel/sala.jpg" alt="Consultorio foto 4" class="carousel-img">
+
+                <div class="office" role="tabpanel" id="panel-palermo" aria-labelledby="tab-palermo" data-panel="palermo" hidden>
+                    <div class="office-info">
+                        <h2>Palermo, CABA</h2>
+                        <p class="with-icon"><i data-icon="pin"></i><span>Av. Santa Fe 3242, 9no piso, depto F</span></p>
+                        <div class="table-scroll">
+                            <table class="hours">
+                                <tbody>
+                                    <tr><th scope="row">Martes</th><td>14:00 a 19:30 hs</td></tr>
+                                    <tr><th scope="row">Viernes</th><td>10:00 a 17:00 hs</td></tr>
+                                </tbody>
+                            </table>
                         </div>
-                        <button class="carousel-arrow right" data-carousel-next>&#10095;</button>
-                        <div class="carousel-dots">
-                            <span class="carousel-dot" data-carousel-dot></span>
-                            <span class="carousel-dot" data-carousel-dot></span>
-                            <span class="carousel-dot" data-carousel-dot></span>
-                            <span class="carousel-dot" data-carousel-dot></span>
+                        <p class="with-icon"><i data-icon="phone"></i><span><a href="tel:1141411075">Llamando al 11-4141-1075</a></span></p>
+                        <p class="with-icon"><i data-icon="whatsapp"></i><span><a href="https://wa.me/541141411075?text=Hola!%20Quiero%20solicitar%20un%20turno%20con%20el%20Doctor%20Humphreys%20para%20el%20consultorio%20de%20CABA" target="_blank" rel="noopener">A través de WhatsApp al 11-4141-1075</a></span></p>
+                        <p>Si tenés OSDE podés solicitar turno a través de la cartilla.</p>
+                        <div class="btn-row">
+                            <a class="btn btn-primary" target="_blank" rel="noopener" href="https://www.osde.com.ar/cartilla-inteligente/agenda/dr-humphreys-andrs-roberto-76374/dom-306446?plan=21"><i data-icon="calendar"></i>Cartilla de turnos OSDE</a>
+                            <a class="btn btn-wa" target="_blank" rel="noopener" href="https://wa.me/541141411075?text=Hola!%20Quiero%20solicitar%20un%20turno%20con%20el%20Doctor%20Humphreys%20para%20el%20consultorio%20de%20CABA"><i data-icon="whatsapp"></i>WhatsApp</a>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="map-wrap">
+                            <iframe title="Mapa del consultorio de Palermo" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Av.+Santa+Fe+3242,+Palermo,+Buenos+Aires&amp;output=embed"></iframe>
+                            <a class="btn btn-rose" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&amp;query=Av.+Santa+Fe+3242,+Palermo,+Buenos+Aires"><i data-icon="pin"></i>Abrir en Google Maps</a>
+                        </div>
+                        <div class="carousel" data-carousel style="margin-top:20px">
+                            <div class="carousel-track">
+                                <img src="assets/carrousel/estante.jpg" alt="Consultorio de Palermo: estante" loading="lazy">
+                                <img src="assets/carrousel/sala2.jpg" alt="Sala del consultorio de Palermo" loading="lazy">
+                                <img src="assets/carrousel/consultorio.jpg" alt="Consultorio de Palermo" loading="lazy">
+                                <img src="assets/carrousel/sala.jpg" alt="Sala de espera de Palermo" loading="lazy">
+                            </div>
+                            <button class="carousel-arrow left" type="button" data-prev aria-label="Foto anterior"><i data-icon="chevron"></i></button>
+                            <button class="carousel-arrow right" type="button" data-next aria-label="Foto siguiente"><i data-icon="chevron"></i></button>
+                            <div class="carousel-dots"></div>
                         </div>
                     </div>
                 </div>
@@ -109,10 +145,7 @@
         </section>
     </main>
 
-    <footer>
-        <p>&copy; 2024 Dr. Andrés Humphreys. All rights reserved.</p>
-    </footer>
+    <div id="site-footer"></div>
     <script src="js/main.js"></script>
 </body>
-
 </html>
