@@ -115,19 +115,38 @@
         var nav = document.getElementById('site-nav');
         var scrim = document.querySelector('.nav-scrim');
         if (!btn || !nav) return;
+        function focusables() {
+            return [btn].concat(Array.prototype.slice.call(nav.querySelectorAll('a[href], button')));
+        }
         function set(open) {
+            var was = nav.classList.contains('open');
             nav.classList.toggle('open', open);
             scrim.hidden = !open;
             document.body.classList.toggle('no-scroll', open);
             btn.setAttribute('aria-expanded', String(open));
             btn.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
             btn.innerHTML = icon(open ? 'close' : 'menu');
+            if (open && !was) {
+                var first = nav.querySelector('a[href]');
+                if (first) first.focus();
+            } else if (!open && was) {
+                btn.focus();
+            }
         }
         btn.addEventListener('click', function () { set(!nav.classList.contains('open')); });
         scrim.addEventListener('click', function () { set(false); });
         nav.addEventListener('click', function (e) { if (e.target.closest('a')) set(false); });
-        document.addEventListener('keydown', function (e) { if (e.key === 'Escape') set(false); });
-        window.addEventListener('resize', function () { if (window.innerWidth > 860) set(false); });
+        document.addEventListener('keydown', function (e) {
+            if (!nav.classList.contains('open')) return;
+            if (e.key === 'Escape') { set(false); return; }
+            if (e.key !== 'Tab') return;
+            var items = focusables();
+            var first = items[0], last = items[items.length - 1];
+            if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+            else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+            else if (items.indexOf(document.activeElement) === -1) { e.preventDefault(); first.focus(); }
+        });
+        window.addEventListener('resize', function () { if (window.innerWidth > 860 && nav.classList.contains('open')) set(false); });
     }
 
     function setupCarousels() {
@@ -177,7 +196,10 @@
                 t.tabIndex = on ? 0 : -1;
                 if (on && focus) t.focus();
             });
-            panels.forEach(function (p) { p.hidden = p.getAttribute('data-panel') !== id; });
+            panels.forEach(function (p) { var off = p.getAttribute('data-panel') !== id;
+                p.hidden = off;
+                p.setAttribute('aria-hidden', String(off));
+            });
         }
         tabs.forEach(function (t, i) {
             t.addEventListener('click', function () {
@@ -186,8 +208,14 @@
                 history.replaceState(null, '', '#' + id);
             });
             t.addEventListener('keydown', function (e) {
-                if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
-                show(ids[(i + (e.key === 'ArrowRight' ? 1 : -1) + ids.length) % ids.length], true);
+                var n;
+                if (e.key === 'ArrowRight') n = (i + 1) % ids.length;
+                else if (e.key === 'ArrowLeft') n = (i - 1 + ids.length) % ids.length;
+                else if (e.key === 'Home') n = 0;
+                else if (e.key === 'End') n = ids.length - 1;
+                else return;
+                e.preventDefault();
+                show(ids[n], true);
             });
         });
         function fromHash() {
