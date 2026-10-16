@@ -9,6 +9,9 @@
     --sage: #9DB4A0;
     --sage-dark: #4F6A53;
     --sage-bg: #E9F0EA;
+    --alert-red: #C62828;
+    --alert-bg: #FDECEA;
+    --alert-text: #8E1B1B;
     --danger: #A33A3A;
     --danger-bg: #FBE9E7;
     --card: #FFFFFF;
@@ -221,6 +224,11 @@ a:focus-visible, button:focus-visible, summary:focus-visible, input:focus-visibl
 .checklist { list-style: none; padding: 0; margin: 0 0 1em; display: grid; gap: 10px; }
 .checklist li { display: flex; gap: 12px; padding: 12px 14px; background: var(--ivory); border-radius: var(--radius-sm); }
 .checklist .i { color: var(--sage-dark); margin-top: .2em; }
+.alert-callout { background: var(--alert-bg); border: 1px solid var(--alert-red); border-left: 8px solid var(--alert-red); border-radius: var(--radius-sm); padding: 16px 18px; margin: 20px 0; color: #3A1212; }
+.alert-callout p { margin: .5em 0 0; }
+.alert-callout-title { display: flex; align-items: center; gap: 8px; margin: 0 !important; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; font-size: .85rem; color: var(--alert-text); }
+.alert-callout-title .i { color: var(--alert-red); width: 26px; height: 26px; }
+.alert-callout .alert-callout-main { font-weight: 700; font-size: 1.1rem; line-height: 1.4; color: var(--alert-text); margin-top: .4em; }
 .note { background: var(--sage-bg); border-left: 4px solid var(--sage-dark); border-radius: var(--radius-sm); padding: 14px 16px; margin: 16px 0; }
 .note.rose { background: var(--rose-bg); border-color: var(--rose-dark); }
 .compare { display: grid; gap: 14px; margin: 16px 0; }
@@ -324,4 +332,6 @@ body.bar-hidden .mobile-bar { transform: translateY(110%); }
     .faq .faq-body { display: block; }
     a { color: #000; text-decoration: none; }
     .alert-banner, .compare > div, .note { border: 1px solid #999; background: #fff; }
+    .alert-callout { background: #fff; border: 2px solid #000; border-left-width: 8px; color: #000; }
+    .alert-callout-title, .alert-callout .alert-callout-main { color: #000; }
 }
