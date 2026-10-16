@@ -2,83 +2,171 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Doctor Andrés Humphreys - Ginecólogo especialista en Patología del Tracto Genital Inferior y Colposcopia. Atención en Temperley y Palermo. Turnos disponibles para OSDE y particulares.">
+    <meta name="theme-color" content="#FBF7F4">
     <title>Dr. Andrés Humphreys | Ginecólogo</title>
-    <link rel="canonical" href="https://www.andreshumphreys.com/" />
+    <link rel="canonical" href="https://www.andreshumphreys.com/">
     <link rel="icon" type="image/svg+xml" href="assets/logo.svg" width="32" height="32">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
-    <link rel="preload" as="image" href="/assets/foto-doc.webp" type="image/webp">
-    <meta name="google-site-verification" content="KWnu39c3PC5UtbX9YTRaZXfMQ7__2ZHa4mDCMKdyh_s" />
+    <link rel="preload" as="image" href="assets/foto-doc.webp" type="image/webp">
+    <meta name="google-site-verification" content="KWnu39c3PC5UtbX9YTRaZXfMQ7__2ZHa4mDCMKdyh_s">
+    <meta property="og:title" content="Dr. Andrés Humphreys | Ginecólogo">
+    <meta property="og:description" content="Patología del Tracto Genital Inferior y Colposcopia. Temperley y Palermo.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.andreshumphreys.com/">
+    <meta property="og:image" content="https://www.andreshumphreys.com/assets/foto-doc.png">
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "Organization",
-      "url": "https://www.andreshumphreys.com/",
-      "logo": "https://www.andreshumphreys.com/assets/logo.svg",
-      "name": "Dr. Andrés Humphreys"
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://www.andreshumphreys.com/#org",
+          "url": "https://www.andreshumphreys.com/",
+          "logo": "https://www.andreshumphreys.com/assets/logo.svg",
+          "name": "Dr. Andrés Humphreys"
+        },
+        {
+          "@type": "Physician",
+          "@id": "https://www.andreshumphreys.com/#physician",
+          "name": "Dr. Andrés Humphreys",
+          "medicalSpecialty": "Gynecologic",
+          "image": "https://www.andreshumphreys.com/assets/foto-doc.png",
+          "url": "https://www.andreshumphreys.com/",
+          "availableService": ["Ginecología general", "Colposcopía", "Patología del Tracto Genital Inferior"],
+          "location": [
+            {
+              "@type": "MedicalClinic",
+              "name": "Consultorio Temperley",
+              "telephone": "+54-11-4244-3486",
+              "email": "consultoriomeeks1313@gmail.com",
+              "address": { "@type": "PostalAddress", "streetAddress": "Av. Meeks 1313, 1er piso, depto 4", "addressLocality": "Temperley", "addressRegion": "Buenos Aires", "addressCountry": "AR" },
+              "openingHoursSpecification": [
+                { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Wednesday"], "opens": "16:00", "closes": "20:00" }
+              ]
+            },
+            {
+              "@type": "MedicalClinic",
+              "name": "Consultorio Palermo",
+              "telephone": "+54-11-4141-1075",
+              "address": { "@type": "PostalAddress", "streetAddress": "Av. Santa Fe 3242, 9no piso, depto F", "addressLocality": "Palermo", "addressRegion": "CABA", "addressCountry": "AR" },
+              "openingHoursSpecification": [
+                { "@type": "OpeningHoursSpecification", "dayOfWeek": "Tuesday", "opens": "14:00", "closes": "19:30" },
+                { "@type": "OpeningHoursSpecification", "dayOfWeek": "Friday", "opens": "10:00", "closes": "17:00" }
+              ]
+            }
+          ]
+        }
+      ]
     }
     </script>
 </head>
 <body>
-    <nav id="main-navbar"></nav>
+    <div id="site-header"></div>
 
-    <main>
+    <main id="contenido">
         <section class="hero">
-            <div class="hero-content">
-                <div class="hero-image">
-                    <img src="assets/foto-doc.webp" 
-                         alt="Dr. Andrés Humphreys"
-                         width="400"
-                         height="400"
-                         loading="eager"
-                         fetchpriority="high">
-                </div>
+            <div class="container hero-grid">
                 <div class="hero-text">
+                    <p class="eyebrow">Ginecología · Tracto Genital Inferior</p>
                     <h1>Ginecólogo Dr. Andrés Humphreys</h1>
-                    <p class="subtitle">Acreditado en Patología del Tracto Genital Inferior y Colposcopia.</p>
-                    <a href="consultorios.html" class="cta-button desktop-only">Reservar turno</a>
+                    <p class="lead">Acreditado en Patología del Tracto Genital Inferior y Colposcopia. Una consulta tranquila, clara y cercana.</p>
+                    <ul class="hero-badges">
+                        <li>Temperley</li>
+                        <li>Palermo</li>
+                        <li>OSDE · OMINT · Particulares</li>
+                    </ul>
+                    <div class="btn-row">
+                        <a href="#turnos" class="btn btn-primary"><i data-icon="calendar"></i>Reservar turno</a>
+                        <a href="acerca-de-mi.html" class="btn btn-ghost">Conocer más</a>
+                    </div>
                 </div>
-                <a href="consultorios.html" class="cta-button mobile-only">Reservar turno</a>
+                <div class="hero-photo">
+                    <img class="blob" src="assets/foto-doc.webp" alt="Dr. Andrés Humphreys" width="400" height="400" loading="eager" fetchpriority="high">
+                </div>
             </div>
         </section>
 
-        <section class="services">
-            <div class="service-cards">
-                <div class="service-card">
-                    <div class="card-icon">
-                        <img src="assets/icons/especialidades.svg" alt="Especialidades">
-                    </div>
-                    <h2>Especialidades</h2>
-                    <p>Ginecología general/<br>Tracto Genital Inferior</p>
-                    <a href="acerca-de-mi.html" class="card-link">Conocer más</a>
+        <section class="section section-alt" id="turnos">
+            <div class="container">
+                <div class="section-head">
+                    <p class="eyebrow">Reservar turno</p>
+                    <h2>Elegí tu consultorio</h2>
+                    <p class="lead">Si tenés OSDE podés sacar turno online desde la cartilla. También podés llamar o escribir por WhatsApp.</p>
                 </div>
-
-                <div class="service-card">
-                    <div class="card-icon">
-                        <img src="assets/icons/map.svg" alt="Consultorios">
-                    </div>
-                    <h2>Consultorios</h2>
-                    <p>Temperley, Zona Sur<br>Palermo, CABA</p>
-                    <a href="consultorios.html" class="card-link">Consultorios y turnos</a>
+                <div class="grid cols-2">
+                    <article class="card book-card">
+                        <h3><i data-icon="pin"></i>Temperley, Zona Sur</h3>
+                        <ul class="book-meta">
+                            <li class="with-icon"><i data-icon="pin"></i><span>Av. Meeks 1313, 1er piso, depto 4</span></li>
+                            <li class="with-icon"><i data-icon="clock"></i><span>Lun y Mié de 16:00 a 20:00 hs</span></li>
+                        </ul>
+                        <div class="btn-row">
+                            <a class="btn btn-primary" target="_blank" rel="noopener" href="https://www.osde.com.ar/cartilla-inteligente/agenda/dr-humphreys-andrs-roberto-76374/dom-116992?plan=21"><i data-icon="calendar"></i>Turno OSDE</a>
+                            <a class="btn btn-ghost" href="tel:42443486"><i data-icon="phone"></i>4244-3486</a>
+                        </div>
+                    </article>
+                    <article class="card book-card">
+                        <h3><i data-icon="pin"></i>Palermo, CABA</h3>
+                        <ul class="book-meta">
+                            <li class="with-icon"><i data-icon="pin"></i><span>Av. Santa Fe 3242, 9no piso, depto F</span></li>
+                            <li class="with-icon"><i data-icon="clock"></i><span>Mar 14:00 a 19:30 hs · Vie 10:00 a 17:00 hs</span></li>
+                        </ul>
+                        <div class="btn-row">
+                            <a class="btn btn-primary" target="_blank" rel="noopener" href="https://www.osde.com.ar/cartilla-inteligente/agenda/dr-humphreys-andrs-roberto-76374/dom-306446?plan=21"><i data-icon="calendar"></i>Turno OSDE</a>
+                            <a class="btn btn-wa" target="_blank" rel="noopener" href="https://wa.me/541141411075?text=Hola!%20Quiero%20solicitar%20un%20turno%20con%20el%20Doctor%20Humphreys%20para%20el%20consultorio%20de%20CABA"><i data-icon="whatsapp"></i>WhatsApp</a>
+                        </div>
+                    </article>
                 </div>
+                <p style="margin-top:20px"><a class="card-link" href="consultorios.html">Ver mapas, horarios y contacto<i data-icon="arrow"></i></a></p>
+            </div>
+        </section>
 
-                <div class="service-card">
-                    <div class="card-icon">
-                        <img src="assets/icons/cobertura.svg" alt="Coberturas médicas">
-                    </div>
-                    <h2>Coberturas médicas</h2>
-                    <p>OSDE, todos los planes<br>OMINT<br>Particulares</p>
-                    <a href="contacto.html" class="card-link">Contacto</a>
+        <section class="section">
+            <div class="container">
+                <div class="grid cols-3">
+                    <article class="card">
+                        <div class="card-icon"><i data-icon="steth"></i></div>
+                        <h3>Especialidades</h3>
+                        <p>Ginecología general y Patología del Tracto Genital Inferior.</p>
+                        <a href="acerca-de-mi.html" class="card-link">Conocer más<i data-icon="arrow"></i></a>
+                    </article>
+                    <article class="card">
+                        <div class="card-icon rose"><i data-icon="pin"></i></div>
+                        <h3>Consultorios</h3>
+                        <p>Temperley, Zona Sur<br>Palermo, CABA</p>
+                        <a href="consultorios.html" class="card-link">Consultorios y contacto<i data-icon="arrow"></i></a>
+                    </article>
+                    <article class="card">
+                        <div class="card-icon"><i data-icon="shield"></i></div>
+                        <h3>Coberturas médicas</h3>
+                        <p>OSDE, todos los planes<br>OMINT<br>Particulares</p>
+                        <a href="consultorios.html#turnos" class="card-link">Reservar turno<i data-icon="arrow"></i></a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section-alt">
+            <div class="container grid cols-2">
+                <div>
+                    <p class="eyebrow">Información al paciente</p>
+                    <h2>Todo lo que necesitás saber, en un solo lugar</h2>
+                    <p class="lead">Indicaciones antes y después de una cirugía, cuidados después del LEEP, PAP, HPV y más. Con instrucciones para descargar en PDF.</p>
+                    <a href="informacion.html" class="btn btn-primary">Ver información<i data-icon="arrow"></i></a>
+                </div>
+                <div class="note rose">
+                    <p class="with-icon"><i data-icon="alert"></i><span><strong>¿Es urgente?</strong> Hemorragia abundante o fiebre mayor a 38 ºC después de una cirugía: comunicate o concurrí a la guardia.</span></p>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer>
-        <p>&copy; 2024 Dr. Andrés Humphreys. All rights reserved.</p>
-    </footer>
-
+    <div id="site-footer"></div>
     <script src="js/main.js"></script>
 </body>
 </html>
