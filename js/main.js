@@ -99,6 +99,17 @@
             '<a href="tel:1141411075" class="btn btn-ghost" aria-label="Llamar al 11-4141-1075">' + icon('phone') + '</a></div>';
     }
 
+    function setupBarVisibility() {
+        var targets = document.querySelectorAll('[data-hide-bar]');
+        if (!targets.length || !('IntersectionObserver' in window)) return;
+        var visible = new Set();
+        var io = new IntersectionObserver(function (entries) {
+            entries.forEach(function (e) { e.isIntersecting ? visible.add(e.target) : visible.delete(e.target); });
+            document.body.classList.toggle('bar-hidden', visible.size > 0);
+        });
+        targets.forEach(function (t) { io.observe(t); });
+    }
+
     function setupMenu() {
         var btn = document.querySelector('.menu-btn');
         var nav = document.getElementById('site-nav');
@@ -289,6 +300,7 @@
         renderFooter();
         hydrateIcons();
         setupMenu();
+        setupBarVisibility();
         setupCarousels();
         setupTabs();
         setupInfoPage();

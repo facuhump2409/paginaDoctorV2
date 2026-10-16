@@ -105,7 +105,12 @@ a:focus-visible, button:focus-visible, summary:focus-visible, input:focus-visibl
 
 /* Hero */
 .hero { padding: 32px 0 48px; overflow: hidden; }
-.hero-grid { display: grid; gap: 32px; align-items: center; }
+.hero-grid { display: grid; gap: 20px; align-items: center; }
+.hero-text { display: contents; }
+.hero-text > .eyebrow, .hero-text > h1, .hero-text > .lead { order: 1; }
+.hero-photo { order: 2; }
+.hero-badges { order: 3; }
+.hero-text > .btn-row { order: 4; }
 .hero-photo { position: relative; max-width: 340px; margin: 0 auto; }
 .blob {
     width: 100%; aspect-ratio: 1; object-fit: cover; object-position: center top;
@@ -238,6 +243,10 @@ a:focus-visible, button:focus-visible, summary:focus-visible, input:focus-visibl
 
 /* WhatsApp FAB + sticky mobile bar */
 .wa-fab { position: fixed; right: 16px; bottom: 88px; width: 56px; height: 56px; border-radius: 50%; background: #25D366; color: #fff; display: grid; place-items: center; z-index: 40; box-shadow: 0 8px 20px rgba(0, 0, 0, .25); }
+.wa-fab { transition: bottom .2s; }
+body.bar-hidden .wa-fab { bottom: 20px; }
+.mobile-bar { transition: transform .2s; }
+body.bar-hidden .mobile-bar { transform: translateY(110%); }
 .wa-fab .i { width: 30px; height: 30px; }
 .mobile-bar { position: fixed; left: 0; right: 0; bottom: 0; z-index: 45; display: flex; gap: 10px; padding: 10px 16px calc(10px + env(safe-area-inset-bottom)); background: rgba(251, 247, 244, .96); backdrop-filter: blur(8px); border-top: 1px solid var(--line); }
 .mobile-bar .btn-primary { flex: 1; }
@@ -269,6 +278,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible, input:focus-visibl
     .section { padding: 72px 0; }
     .hero { padding: 64px 0 80px; }
     .hero-grid { grid-template-columns: 1.1fr .9fr; gap: 56px; }
+    .hero-text { display: block; }
     .hero-photo { order: 2; max-width: 440px; width: 100%; }
     .grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
     .about-grid { grid-template-columns: 1fr 1fr; gap: 48px; }
