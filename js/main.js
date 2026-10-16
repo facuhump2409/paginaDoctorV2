@@ -2,7 +2,7 @@
 (function () {
     'use strict';
 
-    var WHATSAPP_URL = 'https://wa.me/541141411075?text=Hola!%20Quiero%20solicitar%20un%20turno%20con%20el%20Doctor%20Humphreys';
+    var WHATSAPP_URL = 'https://wa.me/541141411075?text=Hola!%20Quiero%20reservar%20un%20turno%20con%20el%20Dr%20Andr%C3%A9s%20Humphreys%20en%20su%20consultorio%20en%20Palermo!';
 
     var NAV = [
         { key: 'index', href: 'index.html', label: 'Inicio' },
