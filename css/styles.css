@@ -167,6 +167,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible, input:focus-visibl
 .cred-list .i { color: var(--sage-dark); margin-top: .2em; }
 .cred-year { font-size: .85rem; color: var(--rose-dark); font-weight: 600; display: block; }
 .site-card { display: flex; gap: 16px; align-items: flex-start; justify-content: space-between; }
+.site-card .btn { margin-top: 12px; text-align: left; }
 .site-card .arrow { flex: none; width: 48px; height: 48px; border-radius: 50%; background: var(--plum); color: #fff; display: grid; place-items: center; text-decoration: none; }
 .site-card .arrow:hover { background: var(--rose-dark); }
 
