@@ -53,6 +53,7 @@
                     <i data-icon="search"></i>
                     <input id="info-search" type="search" placeholder="Buscar: LEEP, HPV, PAP, ayuno…" aria-label="Buscar en la información al paciente" autocomplete="off">
                 </div>
+                <p id="info-status" class="search-status" role="status" aria-live="polite"></p>
             </div>
         </section>
 
@@ -77,7 +78,7 @@
             </nav>
 
             <div id="info-content">
-                <section class="info-section" id="pap" data-section>
+                <section class="info-section" id="pap" data-section data-topic="pap papanicolaou">
                     <span id="faq"></span>
                     <h2><i data-icon="search"></i>¿Qué es el PAP?</h2>
                         <p><strong>¿Para qué sirve?</strong><br>
@@ -104,7 +105,7 @@
                         </div>
                 </section>
 
-                <section class="info-section faq" id="hpv" data-section>
+                <section class="info-section faq" id="hpv" data-section data-topic="hpv">
                     <h2><i data-icon="search"></i>¿Qué es el test de HPV?</h2>
                     <span id="test-hpv"></span>
                     <p>El test de HPV es, hoy en día, la mejor prueba disponible para evaluar el riesgo de desarrollar lesiones en el cuello uterino en el futuro. Está indicado en pacientes de 30 a 65 años y detecta la presencia o ausencia de alguno de los 14 tipos de virus de alto riesgo oncogénico relacionados con el potencial desarrollo de una lesión pre maligna o maligna del cuello uterino.</p>
@@ -175,7 +176,7 @@
                     </div>
                 </section>
 
-                <section class="info-section" id="vulva" data-section>
+                <section class="info-section" id="vulva" data-section data-topic="vulva">
                     <h2><i data-icon="heart"></i>Recomendaciones para el cuidado de tu vulva</h2>
                     <ul class="checklist">
                         <li><i data-icon="check"></i><span>Evitar el uso de ropa ajustada.</span></li>
@@ -188,7 +189,7 @@
                     </ul>
                 </section>
 
-                <section class="info-section faq" id="sil" data-section>
+                <section class="info-section faq" id="sil" data-section data-topic="sil">
                     <h2><i data-icon="file"></i>¿Qué es un SIL?</h2>
                     <p>Un SIL de alto grado (Lesión Intraepitelial Escamosa) es una lesión precancerosa en el cuello uterino. Incluye los estadios CIN II y CIN III. Diferencias:</p>
 
@@ -244,7 +245,7 @@
                     </div>
                 </section>
 
-                <section class="info-section faq" id="leep" data-section>
+                <section class="info-section faq" id="leep" data-section data-topic="leep conizacion">
                     <h2><i data-icon="file"></i>¿Qué es el LEEP?</h2>
                     <span id="conizacion"></span>
                     <p>Históricamente, la "conización" tradicional era el procedimiento estándar. Aunque el término se sigue usando de forma general, hoy en día el tratamiento más moderno y frecuente para las lesiones de alto grado es la escisión con radiofrecuencia (conocida como LEEP, procedimiento de escisión electroquirúrgica con asa).</p>
@@ -358,7 +359,10 @@
                     </div>
                 </section>
 
-                <p id="info-empty" class="empty-state" hidden>No encontramos resultados. Probá con otra palabra o <a href="consultorios.html">consultanos</a>.</p>
+                <div id="info-empty" class="empty-state" hidden>
+                    <p>No encontramos resultados. Probá con otra palabra o <a href="consultorios.html">consultanos</a>.</p>
+                    <button type="button" class="btn btn-ghost" data-clear-search>Borrar búsqueda</button>
+                </div>
 
                 <div class="btn-row no-print" style="margin-bottom:32px">
                     <button class="btn btn-ghost" type="button" data-print><i data-icon="printer"></i>Imprimir esta página</button>

@@ -232,27 +232,217 @@
         var content = document.getElementById('info-content');
         if (!content) return;
 
-        // Search: hides sections/FAQs without a match and opens matching FAQs.
+        // Search: animated filtering, topic-first ranking, highlights and jump-to-match.
         var input = document.getElementById('info-search');
         var empty = document.getElementById('info-empty');
+        var status = document.getElementById('info-status');
         var norm = function (s) { return s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, ''); };
+        var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
         var blocks = Array.prototype.slice.call(content.querySelectorAll('[data-section]'));
         blocks.forEach(function (b) { b._text = norm(b.textContent); });
-        input.addEventListener('input', function () {
-            var q = norm(input.value.trim());
-            var shown = 0;
-            blocks.forEach(function (b) {
-                var hit = !q || b._text.indexOf(q) > -1;
-                b.hidden = !hit;
-                if (hit) shown++;
-                b.querySelectorAll('details').forEach(function (d) {
-                    var match = !!q && norm(d.textContent).indexOf(q) > -1;
-                    d.hidden = !!q && !match;
-                    d.open = match;
-                });
+        var also = document.createElement('p');
+        also.className = 'also-label';
+        also.hidden = true;
+        content.appendChild(also);
+        var tocLinks = Array.prototype.slice.call(document.querySelectorAll('.toc a'));
+        var timer, jumpTarget = null;
+
+        function cleanBlock(b) {
+            b.classList.remove('is-anim', 'is-out');
+            b.style.maxHeight = '';
+            b.style.transitionDelay = '';
+        }
+        function hideBlock(b, i) {
+            if (b.hidden || b._going) return;
+            if (reduced) { b.hidden = true; return; }
+            b.style.maxHeight = b.scrollHeight + 'px';
+            b.classList.add('is-anim');
+            void b.offsetHeight;
+            b.style.transitionDelay = Math.min(i * 35, 175) + 'ms';
+            b.classList.add('is-out');
+            b._going = true;
+            clearTimeout(b._t);
+            b._t = setTimeout(function () { b.hidden = true; b._going = false; cleanBlock(b); }, 520);
+        }
+        function showBlock(b) {
+            clearTimeout(b._t);
+            var wasHidden = b.hidden;
+            b._going = false;
+            b.hidden = false;
+            if (reduced) { cleanBlock(b); return; }
+            if (wasHidden) {
+                b.classList.add('is-anim', 'is-out');
+                void b.offsetHeight;
+            } else if (!b.classList.contains('is-out')) {
+                return;
+            }
+            b.style.transitionDelay = '';
+            b.style.maxHeight = b.scrollHeight + 'px';
+            b.classList.remove('is-out');
+            b._t = setTimeout(function () { cleanBlock(b); }, 360);
+        }
+
+        function clearMarks() {
+            content.querySelectorAll('mark.hl').forEach(function (m) {
+                var par = m.parentNode;
+                par.replaceChild(document.createTextNode(m.textContent), m);
+                par.normalize();
             });
-            empty.hidden = shown > 0;
+            content.querySelectorAll('span.hl-wrap').forEach(function (w) {
+                var par = w.parentNode;
+                par.replaceChild(document.createTextNode(w.textContent), w);
+                par.normalize();
+            });
+        }
+        function markText(root, q) {
+            var walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
+                acceptNode: function (n) {
+                    return n.parentNode.closest('script, style, iframe, mark, button') ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT;
+                }
+            });
+            var nodes = [];
+            while (walker.nextNode()) nodes.push(walker.currentNode);
+            nodes.forEach(function (n) {
+                var txt = norm(n.nodeValue);
+                if (txt.length !== n.nodeValue.length || txt.indexOf(q) < 0) return;
+                if (/^H[1-6]$/.test(n.parentNode.tagName)) {
+                    var w = document.createElement('span');
+                    w.className = 'hl-wrap';
+                    n.parentNode.replaceChild(w, n);
+                    w.appendChild(n);
+                }
+                var pos = [], i = txt.indexOf(q);
+                while (i > -1) { pos.push(i); i = txt.indexOf(q, i + q.length); }
+                for (var k = pos.length - 1; k >= 0; k--) {
+                    var r = document.createRange();
+                    r.setStart(n, pos[k]);
+                    r.setEnd(n, pos[k] + q.length);
+                    var m = document.createElement('mark');
+                    m.className = 'hl';
+                    r.surroundContents(m);
+                }
+            });
+        }
+        function score(b, q) {
+            var title = norm(b.querySelector('h2').textContent);
+            if (title.indexOf(q) > -1) return 3;
+            var heads = Array.prototype.some.call(b.querySelectorAll('h3, summary'), function (h) { return norm(h.textContent).indexOf(q) > -1; });
+            return heads ? 2 : 1;
+        }
+
+        function run() {
+            var q = norm(input.value.trim());
+            var searching = q.length > 0;
+            clearMarks();
+            content.classList.toggle('is-searching', searching);
+            also.hidden = true;
+            jumpTarget = null;
+            var hits = [];
+            var primary = [];
+            blocks.forEach(function (b) {
+                var hit = !searching || b._text.indexOf(q) > -1;
+                b._hit = hit;
+                if (hit && searching) {
+                    hits.push(b);
+                    if ((b.getAttribute('data-topic') || '').split(' ').indexOf(q) > -1) primary.push(b);
+                }
+            });
+            var topicQuery = primary.length > 0;
+            var shown = 0, outIdx = 0;
+            blocks.forEach(function (b) {
+                b.style.order = '';
+                if (b._hit) {
+                    shown++;
+                    showBlock(b);
+                } else {
+                    hideBlock(b, outIdx++);
+                }
+                if (!searching || !b._hit) return;
+                var isPrimary = primary.indexOf(b) > -1;
+                var sc = score(b, q);
+                b.style.order = topicQuery ? (isPrimary ? 0 : 60 + (10 - sc)) : 10 - sc;
+                b.querySelectorAll('details').forEach(function (d) {
+                    if (topicQuery && isPrimary) { d.hidden = false; d.open = false; return; }
+                    var m = norm(d.textContent).indexOf(q) > -1;
+                    d.hidden = !m;
+                    d.open = m;
+                    d._s = m;
+                });
+                markText(b, q);
+            });
+            if (!searching) {
+            }
+            if (!searching || !hits.length) {
+                content.querySelectorAll('details').forEach(function (d) {
+                    d.hidden = false;
+                    if (d._s) { d.open = false; d._s = false; }
+                });
+            }
+            if (topicQuery && hits.length > primary.length) {
+                also.textContent = 'También menciona «' + input.value.trim() + '»';
+                also.hidden = false;
+            }
+            empty.hidden = !searching || shown > 0;
+            status.textContent = searching ? (shown + (shown === 1 ? ' resultado' : ' resultados')) : '';
+
+            tocLinks.forEach(function (l) {
+                var el = document.getElementById(l.getAttribute('href').slice(1));
+                var bk = el && el.closest('[data-section]');
+                var off = searching && (!bk || !bk._hit || (el.tagName === 'DETAILS' && el.hidden));
+                l.classList.toggle('dim', !!off);
+            });
+            var par = document.querySelector('.toc-parent');
+            if (par) {
+                par.classList.toggle('dim', !!document.querySelector('.toc-sub') && document.querySelectorAll('.toc-sub a:not(.dim)').length === 0);
+            }
+
+            if (searching && shown > 0) {
+                var best = topicQuery ? primary[0] : hits.slice().sort(function (x, y) { return (+x.style.order) - (+y.style.order); })[0];
+                var tgt = best;
+                if (!topicQuery) {
+                    var mk = best.querySelector('mark.hl');
+                    tgt = (mk && mk.closest('details')) || mk || best;
+                }
+                jumpTarget = tgt;
+                best.classList.remove('hit');
+            }
+        }
+        function jump() {
+            var tgt = jumpTarget;
+            if (!tgt) return;
+            var flash = tgt.closest('details') || tgt.closest('[data-section]') || tgt;
+            setTimeout(function () {
+                tgt.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth', block: 'start' });
+                flash.classList.add('hit');
+                setTimeout(function () { flash.classList.remove('hit'); }, 1800);
+            }, reduced ? 0 : 340);
+        }
+        function schedule() {
+            clearTimeout(timer);
+            timer = setTimeout(function () { run(); jump(); }, 200);
+        }
+        input.addEventListener('input', schedule);
+        input.addEventListener('keydown', function (e) {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                clearTimeout(timer);
+                run();
+                jump();
+            } else if (e.key === 'Escape' && input.value) {
+                e.preventDefault();
+                clearTimeout(timer);
+                input.value = '';
+                run();
+            }
         });
+        var clearBtn = document.querySelector('[data-clear-search]');
+        if (clearBtn) {
+            clearBtn.addEventListener('click', function () {
+                input.value = '';
+                run();
+                input.focus();
+            });
+        }
 
         // Scroll-spy for the table of contents (keeps the active chip visible on mobile).
         var links = Array.prototype.slice.call(document.querySelectorAll('.toc a'));
