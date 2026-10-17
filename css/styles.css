@@ -271,8 +271,6 @@ a:focus-visible, button:focus-visible, summary:focus-visible, input:focus-visibl
 .glossary dt { font-weight: 700; color: var(--plum); margin-top: .8em; }
 .glossary dt:first-child { margin-top: 0; }
 .glossary dd { margin: .15em 0 0; }
-.summary-box { background: var(--sage-bg); border: 1px solid var(--sage-line); border-radius: var(--radius); padding: 18px 20px; }
-.summary-box .checklist li { background: var(--surface); }
 .download-card { display: flex; flex-direction: column; gap: 12px; background: var(--ivory); border: 1px dashed var(--rose); border-radius: var(--radius-sm); padding: 16px; margin: 16px 0; }
 .download-card p { margin: 0; }
 .faq details { border: 1px solid var(--line); border-radius: var(--radius-sm); margin-bottom: 10px; background: var(--surface); }
