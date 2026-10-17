@@ -369,3 +369,9 @@ body.bar-hidden .mobile-bar { transform: translateY(110%); }
     .alert-callout { background: #fff; border: 2px solid #000; border-left-width: 8px; color: #000; }
     .alert-callout-title, .alert-callout .alert-callout-main { color: #000; }
 }
+
+.video-box { margin: 1.5rem 0; }
+.video-stage { aspect-ratio: 16 / 9; width: 100%; border-radius: 16px; overflow: hidden; background: var(--ivory-2); }
+.video-stage iframe { width: 100%; height: 100%; border: 0; display: block; }
+.video-box figcaption { margin-top: .5rem; font-size: .9rem; }
+.video-box figcaption a { display: inline-block; padding: .6rem 0; font-weight: 600; }
