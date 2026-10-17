@@ -262,21 +262,47 @@
                     if (!en.isIntersecting) return;
                     links.forEach(function (l) {
                         var on = l.getAttribute('href') === '#' + en.target.id;
+                        if (on) syncGroup(en.target.id);
                         l.classList.toggle('active', on);
-                        if (on && l.parentNode.scrollWidth > l.parentNode.clientWidth) {
-                            l.parentNode.scrollTo({ left: l.offsetLeft - 16, behavior: 'smooth' });
+                        var strip = document.querySelector('.toc > ul');
+                        if (on && strip.scrollWidth > strip.clientWidth) {
+                            strip.scrollTo({ left: l.getBoundingClientRect().left - strip.getBoundingClientRect().left + strip.scrollLeft - 16, behavior: 'smooth' });
                         }
                     });
                 });
             }, { rootMargin: '-20% 0px -70% 0px' });
             blocks.forEach(function (b) { io.observe(b); });
+            ['prequirurgicas', 'postleep'].forEach(function (id) { var d = document.getElementById(id); if (d) io.observe(d); });
         }
 
+        var parent = document.querySelector('.toc-parent');
+        var sub = document.getElementById('toc-leep-sub');
+        function setGroup(open) {
+            if (!parent) return;
+            parent.setAttribute('aria-expanded', open ? 'true' : 'false');
+            sub.hidden = !open;
+        }
+        if (parent) {
+            parent.addEventListener('click', function () { setGroup(sub.hidden); });
+        }
+        function syncGroup(id) {
+            if (!parent) return;
+            setGroup(['leep', 'prequirurgicas', 'postleep'].indexOf(id) > -1);
+        }
+
+        var settle;
         function openHash() {
             var aliases = { prequirurgico: 'prequirurgicas', postquirurgico: 'postleep', postquirurgicas: 'postleep', postleep: 'postleep' };
             var id = decodeURIComponent(location.hash.replace('#', ''));
             var t = id && document.getElementById(aliases[id] || id);
             var d = t && t.closest('details');
+            syncGroup(d ? d.id : id);
+            var tid = d ? d.id : id;
+            clearTimeout(settle);
+            settle = setTimeout(function () {
+                syncGroup(tid);
+                links.forEach(function (l) { l.classList.toggle('active', l.getAttribute('href') === '#' + tid); });
+            }, 1000);
             if (d) {
                 d.open = true;
                 t.scrollIntoView();
