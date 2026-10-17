@@ -202,6 +202,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible, input:focus-visibl
 /* Page header */
 .page-head { padding: 40px 0 8px; }
 .page-head p { color: var(--plum-soft); max-width: 640px; }
+.page-head p.page-intro { max-width: none; }
 
 /* Info page */
 .reviewed { font-size: .82rem; color: var(--plum-soft); display: flex; gap: 8px; align-items: center; margin: 0 0 32px; }
