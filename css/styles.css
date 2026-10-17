@@ -65,6 +65,11 @@ a { color: var(--plum); text-underline-offset: 3px; }
 a:focus-visible, button:focus-visible, summary:focus-visible, input:focus-visible {
     outline: 3px solid var(--sage-dark); outline-offset: 2px; border-radius: 6px;
 }
+a, button, summary { -webkit-tap-highlight-color: transparent; }
+/* Pointer/touch/programmatic focus: no ring. Keyboard focus keeps the rings above. */
+.using-pointer :focus, .using-pointer :focus-visible { outline: none !important; box-shadow: none; }
+.using-pointer .toc a.active:focus-visible { box-shadow: none; }
+.site-nav:focus, .site-nav:focus-visible { outline: none !important; }
 
 .container { width: 100%; max-width: 1120px; margin: 0 auto; padding: 0 20px; }
 .section { padding: 48px 0; }

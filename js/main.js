@@ -111,6 +111,19 @@
         targets.forEach(function (t) { io.observe(t); });
     }
 
+    // Track input modality so focus rings only show for real keyboard navigation.
+    function setupFocusModality() {
+        var root = document.documentElement;
+        ['pointerdown', 'mousedown', 'touchstart'].forEach(function (t) {
+            document.addEventListener(t, function () { root.classList.add('using-pointer'); }, true);
+        });
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Tab' || e.key.indexOf('Arrow') === 0 || e.key === 'Enter' || e.key === ' ' || e.key === 'Escape') {
+                root.classList.remove('using-pointer');
+            }
+        }, true);
+    }
+
     function setupMenu() {
         var btn = document.querySelector('.menu-btn');
         var nav = document.getElementById('site-nav');
@@ -128,10 +141,10 @@
             btn.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
             btn.innerHTML = icon(open ? 'close' : 'menu');
             if (open && !was) {
-                var first = nav.querySelector('a[href]');
-                if (first) first.focus();
+                nav.setAttribute('tabindex', '-1');
+                nav.focus({ preventScroll: true });
             } else if (!open && was) {
-                btn.focus();
+                btn.focus({ preventScroll: true });
             }
         }
         btn.addEventListener('click', function () { set(!nav.classList.contains('open')); });
@@ -520,6 +533,7 @@
     document.addEventListener('DOMContentLoaded', function () {
         var page = location.pathname.split('/').pop();
         injectSprite();
+        setupFocusModality();
         renderHeader(PAGES[page] || '');
         renderFooter();
         hydrateIcons();
