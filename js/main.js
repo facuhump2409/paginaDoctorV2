@@ -291,37 +291,6 @@
         });
     }
 
-    // Video block: set data-video-src on #leep-video in informacion.html.
-    // Supports YouTube / Vimeo watch URLs, or a direct .mp4/.webm file.
-    function setupVideo() {
-        var box = document.getElementById('leep-video');
-        if (!box) return;
-        var src = (box.getAttribute('data-video-src') || '').trim();
-        var stage = box.querySelector('.video-stage');
-        var fallback = box.querySelector('.video-fallback');
-        if (!src) { fallback.hidden = false; return; }
-        var yt = src.match(/(?:youtube\.com\/(?:watch\?v=|embed\/)|youtu\.be\/)([\w-]{6,})/);
-        var vm = src.match(/vimeo\.com\/(?:video\/)?(\d+)/);
-        var el;
-        if (yt || vm) {
-            el = document.createElement('iframe');
-            el.src = yt ? 'https://www.youtube-nocookie.com/embed/' + yt[1] : 'https://player.vimeo.com/video/' + vm[1];
-            el.title = 'Video: cuidados después del LEEP';
-            el.loading = 'lazy';
-            el.allow = 'accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen';
-            el.allowFullscreen = true;
-        } else {
-            el = document.createElement('video');
-            el.src = src;
-            el.controls = true;
-            el.preload = 'metadata';
-            el.setAttribute('playsinline', '');
-        }
-        stage.appendChild(el);
-        stage.hidden = false;
-        fallback.hidden = true;
-    }
-
     document.addEventListener('DOMContentLoaded', function () {
         var page = location.pathname.split('/').pop();
         injectSprite();
@@ -333,6 +302,5 @@
         setupCarousels();
         setupTabs();
         setupInfoPage();
-        setupVideo();
     });
 })();
