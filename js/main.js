@@ -444,6 +444,7 @@
             });
         }
 
+        var LEEP_IDS = ['leep', 'prequirurgicas', 'postleep'];
         // Scroll-spy for the table of contents (keeps the active chip visible on mobile).
         var links = Array.prototype.slice.call(document.querySelectorAll('.toc a'));
         if ('IntersectionObserver' in window) {
@@ -452,10 +453,11 @@
                     if (!en.isIntersecting) return;
                     links.forEach(function (l) {
                         var on = l.getAttribute('href') === '#' + en.target.id;
+                        if (l.classList.contains('toc-leep-chip')) on = LEEP_IDS.indexOf(en.target.id) > -1;
                         if (on) syncGroup(en.target.id);
                         l.classList.toggle('active', on);
                         var strip = document.querySelector('.toc > ul');
-                        if (on && strip.scrollWidth > strip.clientWidth) {
+                        if (on && l.offsetParent && strip.scrollWidth > strip.clientWidth) {
                             strip.scrollTo({ left: l.getBoundingClientRect().left - strip.getBoundingClientRect().left + strip.scrollLeft - 16, behavior: 'smooth' });
                         }
                     });
@@ -477,7 +479,7 @@
         }
         function syncGroup(id) {
             if (!parent) return;
-            setGroup(['leep', 'prequirurgicas', 'postleep'].indexOf(id) > -1);
+            setGroup(LEEP_IDS.indexOf(id) > -1);
         }
 
         var settle;
@@ -491,7 +493,9 @@
             clearTimeout(settle);
             settle = setTimeout(function () {
                 syncGroup(tid);
-                links.forEach(function (l) { l.classList.toggle('active', l.getAttribute('href') === '#' + tid); });
+                links.forEach(function (l) {
+                    l.classList.toggle('active', l.classList.contains('toc-leep-chip') ? LEEP_IDS.indexOf(tid) > -1 : l.getAttribute('href') === '#' + tid);
+                });
             }, 1000);
             if (d) {
                 d.open = true;
