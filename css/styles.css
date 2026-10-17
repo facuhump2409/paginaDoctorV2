@@ -411,3 +411,7 @@ body.bar-hidden .mobile-bar { transform: translateY(110%); }
 .video-box figcaption { margin-top: .5rem; font-size: .9rem; }
 .video-box figcaption a { display: inline-block; padding: .6rem 0; font-weight: 600; }
 h2 mark.hl, h3 mark.hl { padding: 0; }
+
+.pap-intro p { max-width: 65ch; }
+.pap-intro .callout-info { max-width: 65ch; }
+.pap-intro strong { color: var(--plum); }
