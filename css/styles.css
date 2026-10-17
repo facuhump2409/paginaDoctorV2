@@ -243,6 +243,36 @@ a:focus-visible, button:focus-visible, summary:focus-visible, input:focus-visibl
 .compare .urgent { background: var(--danger-bg); border: 1px solid var(--danger-line); }
 .compare .urgent h3 { color: var(--danger); }
 .compare .ok h3 { color: var(--sage-dark); }
+.sub { font-size: 1.15rem; margin: 1.4em 0 .5em; }
+.callout-info { background: var(--sage-bg); border: 1px solid var(--sage-line); border-left: 4px solid var(--sage-dark); border-radius: var(--radius-sm); padding: 14px 16px; margin: 16px 0; }
+.callout-info p { margin: 0 0 .5em; }
+.callout-info > :last-child { margin-bottom: 0; }
+.callout-title { display: flex; align-items: center; gap: 8px; font-weight: 700; color: var(--sage-dark); }
+.callout-title .i { color: var(--sage-dark); }
+.cin-scale { display: grid; gap: 12px; margin: 16px 0; }
+.cin-card { border-radius: var(--radius-sm); padding: 16px 18px; border: 1px solid var(--sage-line); border-top: 6px solid var(--sage); background: var(--surface); }
+.cin-card h3 { margin: .3em 0 .4em; font-size: 1.05rem; }
+.cin-card p { margin: 0; }
+.cin-tag { display: inline-block; font-weight: 700; font-size: .8rem; letter-spacing: .06em; padding: 3px 10px; border-radius: 999px; background: var(--sage-bg); color: var(--sage-dark); }
+.cin-1 { border-top-color: #9CCBEA; }
+.cin-2 { border-top-color: #4F8FBF; }
+.cin-3 { border-top-color: #1F3A5F; }
+.result-grid { display: grid; gap: 14px; margin: 16px 0; }
+.result { border-radius: var(--radius-sm); padding: 16px 18px; border: 1px solid var(--sage-line); }
+.result h3 { margin: 0 0 .5em; font-size: 1.1rem; display: flex; gap: 8px; align-items: center; color: var(--sage-dark); }
+.result p { margin: 0; }
+.result.neg { background: var(--surface); }
+.result.pos { background: var(--sage-bg); }
+.cta-strip { display: flex; flex-direction: column; gap: 14px; background: var(--ivory-2); border: 1px solid var(--sage-line); border-radius: var(--radius-sm); padding: 16px 18px; margin: 20px 0; }
+.cta-strip p { margin: 0; }
+.cta-strip .btn-row { margin: 0; }
+.xlink { font-size: .95rem; }
+.steps { padding-left: 1.3em; display: grid; gap: 8px; margin: 0 0 1em; }
+.glossary dt { font-weight: 700; color: var(--plum); margin-top: .8em; }
+.glossary dt:first-child { margin-top: 0; }
+.glossary dd { margin: .15em 0 0; }
+.summary-box { background: var(--sage-bg); border: 1px solid var(--sage-line); border-radius: var(--radius); padding: 18px 20px; }
+.summary-box .checklist li { background: var(--surface); }
 .download-card { display: flex; flex-direction: column; gap: 12px; background: var(--ivory); border: 1px dashed var(--rose); border-radius: var(--radius-sm); padding: 16px; margin: 16px 0; }
 .download-card p { margin: 0; }
 .faq details { border: 1px solid var(--line); border-radius: var(--radius-sm); margin-bottom: 10px; background: var(--surface); }
@@ -290,6 +320,9 @@ body.bar-hidden .mobile-bar { transform: translateY(110%); }
     .btn-row { flex-direction: row; flex-wrap: wrap; }
     .grid.cols-2, .grid.cols-3 { grid-template-columns: repeat(2, 1fr); }
     .compare { grid-template-columns: 1fr 1fr; }
+    .cin-scale { grid-template-columns: repeat(3, 1fr); }
+    .result-grid { grid-template-columns: 1fr 1fr; }
+    .cta-strip { flex-direction: row; align-items: center; justify-content: space-between; }
     .download-card { flex-direction: row; align-items: center; justify-content: space-between; }
     .map-wrap iframe { height: 380px; }
     .map-wrap .btn { width: auto; }
@@ -336,7 +369,7 @@ body.bar-hidden .mobile-bar { transform: translateY(110%); }
     .faq details { border: 1px solid #ccc; break-inside: avoid; }
     .faq .faq-body { display: block; }
     a { color: #000; text-decoration: none; }
-    .alert-banner, .compare > div, .note { border: 1px solid #999; background: #fff; }
+    .alert-banner, .compare > div, .note, .callout-info, .cin-card, .result, .cta-strip { border: 1px solid #999; background: #fff; }
     .alert-callout { background: #fff; border: 2px solid #000; border-left-width: 8px; color: #000; }
     .alert-callout-title, .alert-callout .alert-callout-main { color: #000; }
 }
