@@ -226,6 +226,11 @@ a:focus-visible, button:focus-visible, summary:focus-visible, input:focus-visibl
 .toc .toc-parent[aria-expanded="true"] .i { transform: rotate(180deg); }
 .toc .toc-sub { overflow: visible; }
 .toc .toc-sub[hidden] { display: none; }
+.toc a { -webkit-tap-highlight-color: transparent; }
+.toc a.active, .toc a.active:hover, .toc a.active:active, .toc a.active:focus, .toc a.active:focus-visible { background: var(--plum); color: #fff; border-color: var(--plum); }
+.toc a:active:not(.active) { color: var(--sage-dark); border-color: #1F94E8; }
+.toc a:focus-visible, .toc .toc-parent:focus-visible { outline: 2px solid #1F94E8; outline-offset: 2px; }
+.toc a.active:focus-visible { outline: 2px solid #fff; outline-offset: -5px; box-shadow: 0 0 0 2px var(--plum); }
 .info-section { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 22px; margin-bottom: 20px; }
 .info-section > h2 { display: flex; gap: 10px; align-items: center; }
 .info-section > h2 .i { color: var(--rose-dark); }
@@ -366,6 +371,8 @@ body.bar-hidden .mobile-bar { transform: translateY(110%); }
     .toc a { border-left: 3px solid transparent; border-radius: 0 10px 10px 0; }
     .toc a:hover { background: transparent; color: var(--sage-dark); border-left-color: #1F94E8; text-decoration: underline; }
     .toc a.active { background: transparent; color: var(--sage-dark); font-weight: 700; border-left-color: #1F94E8; }
+    .toc a.active:hover, .toc a.active:active, .toc a.active:focus, .toc a.active:focus-visible { background: transparent; color: var(--sage-dark); border-left-color: #1F94E8; box-shadow: none; }
+    .toc a.active:focus-visible { outline: 2px solid #1F94E8; outline-offset: 2px; }
     .toc-group { flex-direction: column; align-items: stretch; gap: 4px; }
     .toc .toc-parent { border: 0; border-left: 3px solid transparent; background: transparent; border-radius: 0 10px 10px 0; justify-content: space-between; width: 100%; }
     .toc .toc-parent:hover { border-left-color: #1F94E8; }
