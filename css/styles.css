@@ -204,10 +204,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible, input:focus-visibl
 .page-head p { color: var(--plum-soft); max-width: 640px; }
 
 /* Info page */
-.alert-banner { display: flex; gap: 12px; align-items: flex-start; background: var(--danger-bg); border: 1px solid var(--danger-line); color: var(--danger-text); border-radius: var(--radius-sm); padding: 16px; margin: 16px 0 0; }
-.alert-banner .i { color: var(--danger); margin-top: .15em; }
-.alert-banner a { color: inherit; font-weight: 700; }
-.reviewed { font-size: .88rem; color: var(--plum-soft); display: flex; gap: 8px; align-items: center; margin-top: 16px; }
+.reviewed { font-size: .82rem; color: var(--plum-soft); display: flex; gap: 8px; align-items: center; margin: 0 0 32px; }
 .search { position: relative; margin-top: 20px; }
 .search .i { position: absolute; left: 16px; top: 50%; transform: translateY(-50%); color: var(--plum-soft); }
 .search input { width: 100%; min-height: 52px; padding: 12px 16px 12px 46px; border: 2px solid var(--line); border-radius: 999px; font: 1rem var(--font-body); background: var(--surface); color: var(--plum); }
@@ -379,8 +376,7 @@ body.bar-hidden .mobile-bar { transform: translateY(110%); }
     .faq details { border: 1px solid #ccc; break-inside: avoid; }
     .faq .faq-body { display: block; }
     a { color: #000; text-decoration: none; }
-    .alert-banner, .compare > div, .note, .callout-info, .cin-card, .result, .cta-strip { border: 1px solid #999; background: #fff; }
-    .alert-callout { background: #fff; border: 2px solid #000; border-left-width: 8px; color: #000; }
+        .alert-callout { background: #fff; border: 2px solid #000; border-left-width: 8px; color: #000; }
     .alert-callout-title, .alert-callout .alert-callout-main { color: #000; }
 }
 
