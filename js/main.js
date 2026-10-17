@@ -273,8 +273,14 @@
         }
 
         function openHash() {
-            var t = location.hash && document.querySelector(location.hash);
-            if (t && t.tagName === 'DETAILS') t.open = true;
+            var aliases = { prequirurgico: 'prequirurgicas', postquirurgico: 'postleep', postquirurgicas: 'postleep', postleep: 'postleep' };
+            var id = decodeURIComponent(location.hash.replace('#', ''));
+            var t = id && document.getElementById(aliases[id] || id);
+            var d = t && t.closest('details');
+            if (d) {
+                d.open = true;
+                t.scrollIntoView();
+            }
         }
         openHash();
         window.addEventListener('hashchange', openHash);
