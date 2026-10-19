@@ -75,7 +75,6 @@
             '<a href="index.html" class="brand"><img src="assets/logo.svg" alt="" width="34" height="34"><span>Dr. Andrés Humphreys</span></a>' +
             '<button class="menu-btn" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="site-nav">' + icon('menu') + '</button>' +
             '<nav id="site-nav" class="site-nav" aria-label="Principal">' + links +
-            '<a href="consultorios.html#turnos" class="btn btn-primary nav-cta">' + icon('calendar') + 'Reservar turno</a>' +
             '<a href="tel:1141411075" class="nav-tel">' + icon('phone') + '11-4141-1075</a></nav>' +
             '</div><div class="nav-scrim" hidden></div></header>';
     }
@@ -98,17 +97,6 @@
             '<a class="wa-fab" href="' + WHATSAPP_URL + '" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp">' + icon('whatsapp') + '</a>' +
             '<div class="mobile-bar"><a href="consultorios.html#turnos" class="btn btn-primary">' + icon('calendar') + 'Reservar turno</a>' +
             '<a href="tel:1141411075" class="btn btn-ghost" aria-label="Llamar al 11-4141-1075">' + icon('phone') + '</a></div>';
-    }
-
-    function setupBarVisibility() {
-        var targets = document.querySelectorAll('[data-hide-bar]');
-        if (!targets.length || !('IntersectionObserver' in window)) return;
-        var visible = new Set();
-        var io = new IntersectionObserver(function (entries) {
-            entries.forEach(function (e) { e.isIntersecting ? visible.add(e.target) : visible.delete(e.target); });
-            document.body.classList.toggle('bar-hidden', visible.size > 0);
-        });
-        targets.forEach(function (t) { io.observe(t); });
     }
 
     // Track input modality so focus rings only show for real keyboard navigation.
@@ -538,7 +526,6 @@
         renderFooter();
         hydrateIcons();
         setupMenu();
-        setupBarVisibility();
         setupCarousels();
         setupTabs();
         setupInfoPage();
