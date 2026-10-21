@@ -21,11 +21,10 @@
     <meta name="twitter:description" content="Doctor Andrés Humphreys - Ginecólogo especialista en Patología del Tracto Genital Inferior y Colposcopia. Atención en Temperley y Palermo. Turnos disponibles para OSDE y particulares.">
     <meta name="twitter:image" content="https://www.andreshumphreys.com/assets/og-image.jpg">
     <link rel="icon" type="image/svg+xml" href="assets/logo.svg" width="32" height="32">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="preload" as="image" href="assets/foto-doc.webp" type="image/webp">
+    <link rel="preload" href="assets/fonts/plus-jakarta-sans.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="assets/fonts/playfair-display.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="css/styles.min.css">
+    <link rel="preload" as="image" href="assets/foto-doc-591.webp" type="image/webp" imagesrcset="assets/foto-doc-360.webp 360w, assets/foto-doc-591.webp 591w" imagesizes="(min-width: 861px) 440px, 340px" fetchpriority="high">
     <meta name="google-site-verification" content="KWnu39c3PC5UtbX9YTRaZXfMQ7__2ZHa4mDCMKdyh_s">
     <script type="application/ld+json">
     {
@@ -93,7 +92,7 @@
                     </div>
                 </div>
                 <div class="hero-photo">
-                    <img class="blob" src="assets/foto-doc.webp" alt="Dr. Andrés Humphreys" width="400" height="400" loading="eager" fetchpriority="high">
+                    <img class="blob" src="assets/foto-doc-591.webp" srcset="assets/foto-doc-360.webp 360w, assets/foto-doc-591.webp 591w" sizes="(min-width: 861px) 440px, 340px" alt="Dr. Andrés Humphreys" width="400" height="400" loading="eager" fetchpriority="high">
                 </div>
             </div>
         </section>
@@ -170,6 +169,6 @@
     </main>
 
     <div id="site-footer"></div>
-    <script src="js/main.js"></script>
+    <script src="js/main.min.js" defer></script>
 </body>
 </html>
