@@ -1,3 +1,5 @@
+@font-face { font-family: 'Playfair Display'; font-style: normal; font-weight: 500 700; font-display: swap; src: url(../assets/fonts/playfair-display.woff2) format('woff2'); }
+@font-face { font-family: 'Plus Jakarta Sans'; font-style: normal; font-weight: 400 700; font-display: swap; src: url(../assets/fonts/plus-jakarta-sans.woff2) format('woff2'); }
 /* Clinical Calm — mobile-first. Base styles target ~360px; media queries scale up. */
 :root {
     --ivory: #F4FAFE;
